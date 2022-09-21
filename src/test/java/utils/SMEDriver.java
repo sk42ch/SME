@@ -11,12 +11,13 @@ import org.testng.annotations.Test;
 
 public class SMEDriver {
 
-    private WebDriver driver;
+    private static WebDriver driver;
 
     @BeforeClass
     public void setUp(){
         /*Run This Command from Google Chrome File Location
          * Create ChromeData Folder and use the path
+         * cd "C:\Program Files\Google\Chrome\Application"
          * chrome.exe --remote-debugging-port=9988 --user-data-dir="C:\Users\sohel\OneDrive\Desktop\ChromeData"
         */
 
@@ -28,15 +29,15 @@ public class SMEDriver {
         driver.get("https://www.youtube.com/channel_switcher");
 
     }
-    @Test
-    public void hllasdfa(){
-        System.out.println("Test Pass");
-    }
 
     @AfterClass
     public void tearDown(){
-        driver.manage().deleteAllCookies();
+        driver.quit();
 
+    }
+
+    public static WebDriver getSMEDriver(){
+        return driver;
     }
 
 }
